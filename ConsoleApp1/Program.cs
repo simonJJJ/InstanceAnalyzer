@@ -10,18 +10,13 @@ using System.Text;
 namespace RoadefAnalyzer
 {
     public class InstanceAnalyzer {
-        public const int N = 300;
         public const string csvFilePath_batch = "_batch.csv";
         public const string csvFilePath_defects = "_defects.csv";
         public const string excelFilePath = "v2.";
         public const string OutputDir = "Analysis/Instance/";
-        //public static List<batch> inputbatch = new List<batch>();
-        //public static List<defects> inputdefects = new List<defects>();
 
         public static void Main(string[] args)
         {
-            //batch[] inputbatch = new batch[N];
-            //defects[] inputdefects = new defects[N];
             analyzeInstance();
         }
 
@@ -150,13 +145,7 @@ namespace RoadefAnalyzer
             fs.ReadLine();
             while ((line = fs.ReadLine()) != null)
             {
-                int i = 0;
                 string[] s = line.Split(new char[] { ';' });
-                /*inputbatch[i].Item_ID = s[0];
-                inputbatch[i].Length_Item = s[1];
-                inputbatch[i].Width_Item = s[2];
-                inputbatch[i].Stack = s[3];
-                inputbatch[i].Sequence = s[4];*/
                 batch sline = new batch();
                 sline.Item_ID = s[0];
                 sline.Length_Item = s[1];
@@ -164,7 +153,6 @@ namespace RoadefAnalyzer
                 sline.Stack = s[3];
                 sline.Sequence = s[4];
                 inputbatch.Add(sline);
-                i++;
             }
         }
 
@@ -175,14 +163,7 @@ namespace RoadefAnalyzer
             fs.ReadLine();
             while ((line = fs.ReadLine()) != null)
             {
-                int i = 0;
                 string[] s = line.Split(new char[] { ';' });
-                /*inputdefects[i].Defect_ID = s[0];
-                inputdefects[i].Plate_ID = s[1];
-                inputdefects[i].X = s[2];
-                inputdefects[i].Y = s[3];
-                inputdefects[i].Width_Defect = s[4];
-                inputdefects[i].Height_Defect = s[5];*/
                 defects sline = new defects();
                 sline.Defect_ID = s[0];
                 sline.Plate_ID = s[1];
@@ -191,7 +172,6 @@ namespace RoadefAnalyzer
                 sline.Width_Defect = s[4];
                 sline.Height_Defect = s[5];
                 inputdefects.Add(sline);
-                i++;
             }
         }
     }
