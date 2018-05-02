@@ -44,6 +44,20 @@ namespace RoadefAnalyzer
             int i, j, row, col;
             XLWorkbook workbook = new XLWorkbook();
 
+            #region Basis
+            IXLWorksheet basisSheet = workbook.Worksheets.Add("Basis");
+            row = 0;
+            basisSheet.Cell(++row, 1).Value = "ItemNum";
+            basisSheet.Cell(row, 2).Value = int.Parse(inputbatch[inputbatch.Count - 1].Item_ID) + 1;
+            basisSheet.Cell(++row, 1).Value = "StackNum";
+            basisSheet.Cell(row, 2).Value = int.Parse(inputbatch[inputbatch.Count - 1].Stack) + 1;
+            basisSheet.Cell(++row, 1).Value = "DefectNum";
+            basisSheet.Cell(row, 2).Value = int.Parse(inputdefects[inputdefects.Count - 1].Defect_ID) + 1;
+            basisSheet.Cell(++row, 1).Value = "PlateNum";
+            basisSheet.Cell(row, 2).Value = int.Parse(inputdefects[inputdefects.Count - 1].Plate_ID) + 1;
+            basisSheet.SheetView.FreezeColumns(1);
+            #endregion
+
             #region Batch
             IXLWorksheet batchSheet = workbook.Worksheets.Add("Batch");
             row = 0;
